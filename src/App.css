@@ -1,0 +1,58 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.App .container {
+  display: flex;
+  flex: 33%;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 0.5px solid black;
+  background-color: lightblue;
+  height: 100vh;
+}
+
+.container h3 {
+  align-self: center;
+  font-size: 2vw;
+}
+.container h3:first-letter {
+  text-transform: capitalize;
+}
+
+.container .video-container {
+  align-self: center;
+}
+
+.video-container video {
+  width: 26vw;
+}
+
+.container .list-item {
+  display: flex;
+  align-items: center;
+  margin: 1em;
+  cursor: pointer;
+  font-size: 2vw;
+}
+
+.list-item .item-image{
+  height: 2em;
+}
+
+.list-item .item-title {
+  margin-left: 0.5em;
+}
+
+@media screen and (max-width: 960px) {
+  .App .container {
+    height: 50vh;
+  }
+  .container.player {
+    flex: 100%
+  }
+  .video-container video {
+    width: 40vw;
+  }
+}
