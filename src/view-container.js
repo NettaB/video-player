@@ -45,7 +45,7 @@ class ViewContainer extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate() {
         if(this.props.type === 'player' && this.props.videoUrl) {
             ReactDOM.findDOMNode(this.refs.player).load();
         }
@@ -56,7 +56,7 @@ class ViewContainer extends React.Component {
             return(
                 <div className="video-container">
                     <video autoPlay ref="player"
-                           poster="https://i0.wp.com/cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif?zoom=2&resize=48%2C48">
+                           poster={this.props.poster}>
                         <source src={this.props.videoUrl} type="video/mp4"/>
                     </video>
                 </div>

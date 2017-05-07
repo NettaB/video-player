@@ -7,7 +7,8 @@ class App extends Component {
         super();
         this.state = {
             chosenSeriesID: null,
-            chosenEpisodeURL: ''
+            chosenEpisodeURL: '',
+            seriesImg: ''
         };
         this.onItemClick = this.onItemClick.bind(this);
     }
@@ -15,7 +16,7 @@ class App extends Component {
     onItemClick(type, item) {
         switch(type) {
             case 'series':
-                this.setState({chosenSeriesID: item.id, chosenEpisodeURL: ''});
+                this.setState({chosenSeriesID: item.id, chosenEpisodeURL: '', seriesImg: item.image});
                 break;
             case 'episodes':
                 this.setState({chosenEpisodeURL: item.url});
@@ -30,7 +31,7 @@ class App extends Component {
           <ViewContainer type="series" onItemClick={this.onItemClick}/>
           <ViewContainer type="episodes" onItemClick={this.onItemClick}
                          seriesID={this.state.chosenSeriesID}/>
-          <ViewContainer type="player" videoUrl={this.state.chosenEpisodeURL}/>
+          <ViewContainer type="player" videoUrl={this.state.chosenEpisodeURL} poster={this.state.seriesImg}/>
       </div>
     );
   }
